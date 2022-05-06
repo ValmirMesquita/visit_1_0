@@ -98,7 +98,7 @@ class OrgaosController extends Controller
      * @param  \App\Models\Orgaos  $orgaos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Orgaos $orgaos)
+    public function update(Request $request, Orgaos $orgao)
     {
         //
         // dd($request);
@@ -113,7 +113,7 @@ class OrgaosController extends Controller
 
         ]);
 
-        $orgaos->update($request->all());
+        $orgao->update($request->all());
 
         return redirect()->route('orgaos.index')
             ->with('success', 'Atualizada com sucesso');

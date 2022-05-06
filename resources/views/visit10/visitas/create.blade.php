@@ -11,8 +11,7 @@
 
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
                 <div class="p-6 bg-white border-b border-gray-200">
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -76,7 +75,7 @@
                                 <select name="orgaos_id" class="custom-select rounded-0" id="orgaos_id">
                                     <option selected> Selecione a orgão de origem</option>
                                     @foreach ($orgaos as $orgao)
-                                        <option value="{{ $orgao->id }}"> {{ $orgao->sigla}} </option>
+                                        <option value="{{ $orgao->id }}"> {{ $orgao->nome}} </option>
                                     @endforeach
                                 </select>
                             </th>

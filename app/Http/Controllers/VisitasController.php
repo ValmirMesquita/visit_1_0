@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class VisitasController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Exiba uma listagem do recurso..
      *
      * @return \Illuminate\Http\Response
      */
@@ -23,7 +23,8 @@ class VisitasController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostre o formulário para criar um novo recurso.
+
      *
      * @return \Illuminate\Http\Response
      */
@@ -34,7 +35,7 @@ class VisitasController extends Controller
         $servidores = Servidores::all();
         $orgaos = Orgaos::all();
 
-        $servidores = Servidores::all();
+        // $servidores = Servidores::all();
         return view('visit10.visitas.create ', ['visitantes' => $visitantes, 'servidores' => $servidores, 'orgaos' => $orgaos]);
     }
 
@@ -47,8 +48,8 @@ class VisitasController extends Controller
     public function store(Request $request)
     {
 
-         // Campo de validação do fomulario de cadastro de visitantes
-         $request->validate([
+        // Campo de validação do fomulario de cadastro de visitantes
+        $request->validate([
             'assunto' => 'required',
             'data_entrada' => 'required',
             'hora_entrada' => 'required',
@@ -65,22 +66,21 @@ class VisitasController extends Controller
 
         $visitas = new Visitas();
 
-        $visitas->assunto = $request ->assunto ;
-        $visitas->data_entrada =$request->data_entrada;
-        $visitas->hora_entrada = $request ->hora_entrada;
-        $visitas->data_saida =$request->data_saida;
-        $visitas->hora_saida = $request ->hora_saida;
-        $visitas->orgaos_id = $request ->orgaos_id;
-        $visitas->servidores_id = $request ->servidores_id;
-        $visitas->visitantes_id = $request ->visitantes_id;
+        $visitas->assunto = $request->assunto;
+        $visitas->data_entrada = $request->data_entrada;
+        $visitas->hora_entrada = $request->hora_entrada;
+        $visitas->data_saida = $request->data_saida;
+        $visitas->hora_saida = $request->hora_saida;
+        $visitas->orgaos_id = $request->orgaos_id;
+        $visitas->servidores_id = $request->servidores_id;
+        $visitas->visitantes_id = $request->visitantes_id;
 
         $visitas->save();
         return redirect('/visitas');
-
     }
 
     /**
-     * Display the specified resource.
+     * Exiba o recurso especificado.
      *
      * @param  \App\Models\Visitas  $visitas
      * @return \Illuminate\Http\Response
@@ -88,10 +88,12 @@ class VisitasController extends Controller
     public function show(Visitas $visitas)
     {
         //
+         //
+         return view('visit10.visitas.show', ['visitas' => $visitas]);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mostre o formulário para editar o recurso especificado.
      *
      * @param  \App\Models\Visitas  $visitas
      * @return \Illuminate\Http\Response
@@ -99,10 +101,11 @@ class VisitasController extends Controller
     public function edit(Visitas $visitas)
     {
         //
+        return view('visit10.visitas.edit', compact('visitas'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Atualize o recurso especificado no armazenamento.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Visitas  $visitas
@@ -113,11 +116,11 @@ class VisitasController extends Controller
         //
         echo "Pagina de Teste de Visitas";
         $visitas = Visitas::paginate(4);
-        return view('visit10.visitantes.index', ['visitantes' => $visitas]);
+        return view('visit10.visitas.index', ['visitas' => $visitas]);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remova o recurso especificado do armazenamento.
      *
      * @param  \App\Models\Visitas  $visitas
      * @return \Illuminate\Http\Response
@@ -125,5 +128,9 @@ class VisitasController extends Controller
     public function destroy(Visitas $visitas)
     {
         //
+        $visitas->delete();
+
+        return redirect()->route('visitas.index')
+            ->with('success', 'Excluído com sucesso');
     }
 }

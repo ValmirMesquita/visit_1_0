@@ -17,7 +17,7 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-            <form action="{{ route('orgaos.create', $orgao->id) }}" method="POST">
+            <form action="{{ route('orgaos.update', $orgao->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
