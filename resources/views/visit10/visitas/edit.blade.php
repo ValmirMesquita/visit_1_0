@@ -19,7 +19,7 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-                    <form action="{{ route('visitantes.update', $visitante->id) }}" method="POST">
+                    <form action="{{ route('visitas.update', $visitas->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 

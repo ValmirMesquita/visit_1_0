@@ -59,20 +59,20 @@
                             <tr>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                             <th scope="row"><strong>Visitantes:</strong>
-                                <select name="pessoa_id" class="custom-select rounded-0">
+                                <select name="visitantes_id" class="custom-select rounded-0">
                                     <option selected> Selecione o visitante </option>
                                     @foreach ($visitantes as $visita)
                                         <option value="{{ $visita->id }}"> {{ $visita->nome }} </option>
                                     @endforeach
                                 </div>
                                 </select> <br>
-                                <a class="btn btn-info"  href="{{ route('visitantes.create') }}"><svg xmlns="http://www.w3.org/2000/svg" width="13"  height="16" fill="currentColor" class="bi bi-align-middle" viewBox="0 0 16 16">
+                                <a class="btn btn-info"  href="{{ route('visitas.create') }}"><svg xmlns="http://www.w3.org/2000/svg" width="13"  height="16" fill="currentColor" class="bi bi-align-middle" viewBox="0 0 16 16">
                                     <path d="M6 13a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v10zM1 8a.5.5 0 0 0 .5.5H6v-1H1.5A.5.5 0 0 0 1 8zm14 0a.5.5 0 0 1-.5.5H10v-1h4.5a.5.5 0 0 1 .5.5z"/>
                                   </svg></a>
                             </th>
 
                             <th scope="row"><strong>Orgão Lotação:</strong>
-                                <select name="orgaos_id" class="custom-select rounded-0" id="orgaos_id">
+                                <select name="orgaos_id" class="custom-select rounded-0" >
                                     <option selected> Selecione a orgão de origem</option>
                                     @foreach ($orgaos as $orgao)
                                         <option value="{{ $orgao->id }}"> {{ $orgao->nome}} </option>

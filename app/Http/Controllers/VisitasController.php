@@ -19,7 +19,7 @@ class VisitasController extends Controller
     {
         //
         $visitas = Visitas::paginate(4);
-        return view('visit10.visitas.index', ['visitantes' => $visitas]);
+        return view('visit10.visitas.index', ['visitas' => $visitas]);
     }
 
     /**
@@ -38,6 +38,8 @@ class VisitasController extends Controller
         // $servidores = Servidores::all();
         return view('visit10.visitas.create ', ['visitantes' => $visitantes, 'servidores' => $servidores, 'orgaos' => $orgaos]);
     }
+    
+                                               
 
     /**
      * Armazene um recurso recém-criado no armazenamento.
@@ -50,7 +52,7 @@ class VisitasController extends Controller
 
         // Campo de validação do fomulario de cadastro de visitantes
         $request->validate([
-            'assunto' => 'required',
+            
             'data_entrada' => 'required',
             'hora_entrada' => 'required',
             'data_saida' => 'required',
@@ -62,7 +64,7 @@ class VisitasController extends Controller
 
         ]);
 
-        //  dd($request->all());
+          dd($request->all());
 
         $visitas = new Visitas();
 
