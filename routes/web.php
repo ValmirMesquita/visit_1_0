@@ -5,6 +5,7 @@ use App\Http\Controllers\VisitantesController;
 use App\Http\Controllers\OrgaosController;
 use App\Http\Controllers\ServidoresController;
 use App\Http\Controllers\VisitasController;
+use App\Http\Controllers\DashboardController;
 // use App\Http\Controllers\PDFController;
 
 
@@ -23,6 +24,7 @@ Route::resource('visitantes', VisitantesController::class)->middleware(['auth'])
 Route::resource('orgaos', OrgaosController::class)->middleware(['auth']);
 Route::resource('servidores', ServidoresController::class)->middleware(['auth']);
 Route::resource('visitas', VisitasController::class)->middleware(['auth']);
+Route::resource('visitas', DashboardController::class)->middleware(['auth']);
 
 // Correspondente a criação do pedf
 

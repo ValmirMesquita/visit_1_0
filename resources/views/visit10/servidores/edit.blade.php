@@ -23,7 +23,7 @@
 
 
 
-                <h1>Editar Cadastro</h1>
+                <h1>Editar servidor</h1>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -81,7 +81,7 @@
                         </tr>
 
 
-                       
+
 
                         <tr>
                             <th scope="row">

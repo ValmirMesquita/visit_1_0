@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Visitantes;
+
 use Illuminate\Http\Request;
 
 class VisitantesController extends Controller
@@ -118,7 +119,7 @@ class VisitantesController extends Controller
         //
         // Linha de validação dos capos do formulario
         // dd($visitante->all());
-        
+
         $request->validate([
             'nome' => 'required',
             'cpf' => 'required',

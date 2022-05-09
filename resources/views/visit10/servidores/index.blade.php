@@ -11,8 +11,7 @@
 
     <div class="py-12">
 
-
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="p-6 bg-grey border-b border-gray-200">
 
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -87,7 +86,7 @@
                     @endif
 
                 </div>
-           
+
 
     </div>
 

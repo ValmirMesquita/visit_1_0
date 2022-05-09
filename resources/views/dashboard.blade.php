@@ -67,9 +67,9 @@
                         <p>NULL</p>
                         </div>
                         <div class="icon">
-                        <i class="ion ion-pie-graph "></i>
+                        <i class="ion ion-pie-graph  fas fa-users"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Mais informações <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">Mais informações <i class="fas fa-arrow-circle-right "></i></a>
                         </div>
                         </div>
 

@@ -258,7 +258,7 @@ return [
             'text' => 'Home',
             'url'  => 'dashboard',
             'icon_color' => 'red',
-            'icon' => 'fa fa-home',
+            'icon' => 'fas fa-home',
         ],
 
 
