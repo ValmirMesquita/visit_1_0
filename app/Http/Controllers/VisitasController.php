@@ -52,8 +52,8 @@ class VisitasController extends Controller
     public function store(Request $request)
     {
 
-                // Campo de validação do fomulario de cadastro de
-                // dd($request);
+        // Campo de validação do fomulario de cadastro de
+        // dd($request);
         $request->validate([
             'assunto' => 'required',
             'data_entrada' => 'required',
@@ -67,7 +67,7 @@ class VisitasController extends Controller
 
         ]);
 
-    //  dd($request->all());
+        //  dd($request->all());
 
         $visitas = new Visitas();
 
@@ -93,8 +93,8 @@ class VisitasController extends Controller
     public function show(Visitas $visitas)
     {
         //
-         //
-         return view('visit10.visitas.show', ['visitas' => $visitas]);
+        //
+        return view('visit10.visitas.show', ['visitas' => $visitas]);
     }
 
     /**
