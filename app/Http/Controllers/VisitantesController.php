@@ -64,7 +64,7 @@ class VisitantesController extends Controller
         $visitante->telefone = $request->telefone;
         $visitante->data_nascimento = $request->data_nascimento;
         $visitante->endereco = $request->endereco;
-        $visitante->img = $request->img;
+        // $visitante->img = $request->img;
 
         //Tratamento do Upload da imagem salvando no banco de dados
         if ($request->hasFile('img')) {
@@ -113,10 +113,12 @@ class VisitantesController extends Controller
      * @param  \App\Models\Visitantes  $visitantes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Visitantes $visitante)
+    public function update(Request $request, Visitantes $visitante )
     {
         //
         // Linha de validação dos capos do formulario
+        // dd($visitante->all());
+        
         $request->validate([
             'nome' => 'required',
             'cpf' => 'required',
@@ -131,24 +133,6 @@ class VisitantesController extends Controller
 
 
 
-        //     $visitante->update($request->all());
-        //     return redirect()->route('/visitantes.index')
-        //         ->with('success', 'Atualizada com sucesso');
-        // }
-        // dd($visitante);
-        if ($request->hasFile('img')) {
-            $temp = file_get_contents($request->file('img'));
-            $binary = base64_decode($temp);
-            $visitante->img = $binary;
-
-            // Comando para armazenamento de imagem na pasta determinada.
-            // $img = $request->file('img');
-            // $extensao = md5('id') . '.' . $img->getClientOriginalExtension();
-            // $request->file('img')->move(public_path('imagemUpload/'), $extensao);
-        }
-
-        // $visitante::findOrFail($request->id)->update($data);
-        // return redirect('visitantes.index')->with('msg', 'magem atualizada com sucesso!');
 
         $visitante->update($request->all());
         return redirect()->route('visitantes.index')

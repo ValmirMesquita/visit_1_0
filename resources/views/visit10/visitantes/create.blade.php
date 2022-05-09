@@ -109,7 +109,7 @@
                                     <td>
                                         <div class="form-group">
                                             <strong><label for="image">Foto:</label></strong>
-                                            <input class="form-control" type="file" name="img" placeholder="Inserir foto">
+                                            <input class="form-control" type="file" name="img"  placeholder="Inserir foto">
 
                                         </div>
                                     </td>

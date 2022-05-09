@@ -25,16 +25,16 @@ return new class extends Migration
             $table->timestamps();
 
             // // Chave estrangeira da tabela origem
-            $table->unsignedBigInteger('servidores');
-            $table->unsignedBigInteger('visitantes');
-            $table->unsignedBigInteger('orgaos');
+            $table->unsignedBigInteger('servidores_id');
+            $table->unsignedBigInteger('visitantes_id');
+            $table->unsignedBigInteger('orgaos_id');
 
 
 
             // // Campos relacionados a chave estrangeira da tabela origem
-           $table->foreign('servidores')->references('id')->on('servidores');
-           $table->foreign('visitantes')->references('id')->on('visitantes');
-           $table->foreign('orgaos')->references('id')->on('orgaos');
+           $table->foreign('servidores_id')->references('id')->on('servidores');
+           $table->foreign('visitantes_id')->references('id')->on('visitantes');
+           $table->foreign('orgaos_id')->references('id')->on('orgaos');
         });
     }
 

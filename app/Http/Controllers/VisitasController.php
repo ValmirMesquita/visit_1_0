@@ -18,8 +18,12 @@ class VisitasController extends Controller
     public function index()
     {
         //
+        // $visitantes = Visitantes::all();
+        // $servidores = Servidores::all();
+        // $orgaos = Orgaos::all();
+
         $visitas = Visitas::paginate(4);
-        return view('visit10.visitas.index', ['visitantes' => $visitas]);
+        return view('visit10.visitas.index', ['visitas' => $visitas]);
     }
 
     /**
@@ -48,21 +52,22 @@ class VisitasController extends Controller
     public function store(Request $request)
     {
 
-        // Campo de validação do fomulario de cadastro de visitantes
+                // Campo de validação do fomulario de cadastro de
+                // dd($request);
         $request->validate([
             'assunto' => 'required',
             'data_entrada' => 'required',
             'hora_entrada' => 'required',
             'data_saida' => 'required',
             'hora_saida' => 'required',
-            'orgaos_id ' => 'required',
+            'orgaos_id' => 'required',
             'servidores_id' => 'required',
             'visitantes_id' => 'required'
 
 
         ]);
 
-        //  dd($request->all());
+    //  dd($request->all());
 
         $visitas = new Visitas();
 
@@ -114,7 +119,7 @@ class VisitasController extends Controller
     public function update(Request $request, Visitas $visitas)
     {
         //
-        echo "Pagina de Teste de Visitas";
+
         $visitas = Visitas::paginate(4);
         return view('visit10.visitas.index', ['visitas' => $visitas]);
     }
@@ -125,10 +130,10 @@ class VisitasController extends Controller
      * @param  \App\Models\Visitas  $visitas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Visitas $visitas)
+    public function destroy(Visitas $visita)
     {
         //
-        $visitas->delete();
+        $visita->delete();
 
         return redirect()->route('visitas.index')
             ->with('success', 'Excluído com sucesso');

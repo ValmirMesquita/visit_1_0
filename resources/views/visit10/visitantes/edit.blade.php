@@ -17,12 +17,9 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-                    <form action="{{ route('visitantes.update', $visitante->id) }}" method="POST">
+                    <form action="{{ route('visitantes.update', $visitante->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-
-
-
                     <h1>Editar Cadastro</h1>
                         <table class="table">
                             <thead class="thead-dark">
@@ -33,15 +30,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {{-- <input type="hidden" name="id" value="{{ $visitante->id }}"> --}}
                                 <tr>
                                     <th scope="row">
                                         <div class="form-group">
                                             <strong></strong>
 
-                                            <img src="data:image/png;base64,{{ $visitante->img }}" width="120" class="rounded-circle"
+                                            <img src="data:image/png/;base64,{{ $visitante->img }}" width="120" class="rounded-circle"
                                                 height="120"><br>
-                                            <input type="file" name="img" value="{{ $visitante->img }}"
-                                                class="form-control" placeholder="Alterar foto" >
+                                            <input type="file" name="img" value="{{ $visitante->img }}" class="form-control" placeholder="Alterar foto" >
+
 
                                         </div>
                                     </th>

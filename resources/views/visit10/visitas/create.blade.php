@@ -59,10 +59,10 @@
                             <tr>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                             <th scope="row"><strong>Visitantes:</strong>
-                                <select name="pessoa_id" class="custom-select rounded-0">
+                                <select name="visitantes_id" class="custom-select rounded-0">
                                     <option selected> Selecione o visitante </option>
-                                    @foreach ($visitantes as $visita)
-                                        <option value="{{ $visita->id }}"> {{ $visita->nome }} </option>
+                                    @foreach ($visitantes as $visitante)
+                                        <option value="{{ $visitante->id }}"> {{ $visitante->nome }} </option>
                                     @endforeach
                                 </div>
                                 </select> <br>
@@ -72,7 +72,7 @@
                             </th>
 
                             <th scope="row"><strong>Orgão Lotação:</strong>
-                                <select name="orgaos_id" class="custom-select rounded-0" id="orgaos_id">
+                                <select name="orgaos_id" class="custom-select rounded-0">
                                     <option selected> Selecione a orgão de origem</option>
                                     @foreach ($orgaos as $orgao)
                                         <option value="{{ $orgao->id }}"> {{ $orgao->nome}} </option>

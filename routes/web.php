@@ -5,6 +5,7 @@ use App\Http\Controllers\VisitantesController;
 use App\Http\Controllers\OrgaosController;
 use App\Http\Controllers\ServidoresController;
 use App\Http\Controllers\VisitasController;
+// use App\Http\Controllers\PDFController;
 
 
 /*
@@ -17,10 +18,15 @@ use App\Http\Controllers\VisitasController;
 | contém o grupo de middleware "web". Agora crie algo grande!
 |
 */
-Route::resource('visitantes',VisitantesController::class)->middleware(['auth']);
+Route::resource('visitantes',VisitantesController::class)->middleware(['auth'])->parameter('visitantes','visitante');
 Route::resource('orgaos',OrgaosController::class)->middleware(['auth']);
 Route::resource('servidores',ServidoresController::class)->middleware(['auth']);
 Route::resource('visitas',VisitasController::class)->middleware(['auth']);
+
+// Correspondente a criação do pedf
+
+
+
 
 
 
