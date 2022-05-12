@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-<h1>Lista de orgãos</h1>
+{{-- <h1>Lista de orgãos</h1> --}}
 
 
     <div class="py-12">

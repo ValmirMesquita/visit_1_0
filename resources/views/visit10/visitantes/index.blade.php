@@ -7,17 +7,17 @@
 @stop
 
 @section('content')
-
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+    <p>{{ $message }}</p>
+</div>
+@endif
 
     <div class="py-12">
 
-        <div class="p-6 bg-grey border-b border-gray-200">
+        <div class="p-6 bg- border-b border-gray-200">
 
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
-            @endif
+           
             <br>
             {{-- <h1>LISTA DE VISITANTES</h1> --}}
 
@@ -26,7 +26,7 @@
 
                     <div class="pull-right">
                         <a class="btn btn-success" href="{{ route('visitantes.create') }}"> Cadastro de
-                            visistante</a>
+                            visistantes</a>
                     </div><br>
                 </div>
             </div>

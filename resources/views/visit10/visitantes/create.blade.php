@@ -8,21 +8,22 @@
 
 @section('content')
 
+@if ($errors->any())
+<div class="alert alert-danger">
+    <strong>Opa!</strong> Houve alguns problemas com sua entrada.<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 
     <div class="py-12">
 
                 <div class="p-6 bg-white border-b border-gray-200">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <strong>Opa!</strong> Houve alguns problemas com sua entrada.<br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
+                   
                     <h1>CADASTRO DE VISITANTES</h1>
 
 
@@ -41,6 +42,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                
                                 {{-- Linha de comando para chamada da web-cam --}}
                                 {{-- <tr>
                 <th scope="row">
@@ -146,28 +148,27 @@
 
                 {{-- <script>
     // ================== Linhas de comandos para ativação da web-cam ==================
-    console.log('Hi!');
-
-    navigator.mediaDevices.getUserMedia({
-            video: true
-        })
-        .then(function(mediaStream) {
-            var video = document.querySelector('#video');
-
-            video.srcObject = mediaStream;
-            video.play();
-        })
-        .catch(function(err) {
-            console.log('Não há permissões para acessar a webcam')
-        }) --}}
-
-                {{-- // document.querySelector('#capture').addEventListener('click', function (e) {
-    // var canvas = document.querySelector("#canvas");
-    // canvas.height = video.videoHeight;
-    // canvas.width = video.videoWidth;
-    // var context = canvas.getContext('2d');
-    // context.drawImage(video, 0, 0)
-    // })
+    function loadCamera(){
+	//Captura elemento de vídeo
+	var video = document.querySelector("#webCamera");
+		//As opções abaixo são necessárias para o funcionamento correto no iOS
+		video.setAttribute('autoplay', '');
+	    video.setAttribute('muted', '');
+	    video.setAttribute('playsinline', '');
+	    //--
+	
+	//Verifica se o navegador pode capturar mídia
+	if (navigator.mediaDevices.getUserMedia) {
+		navigator.mediaDevices.getUserMedia({audio: false, video: {facingMode: 'user'}})
+		.then( function(stream) {
+			//Definir o elemento vídeo a carregar o capturado pela webcam
+			video.srcObject = stream;
+		})
+		.catch(function(error) {
+			alert("Oooopps... Falhou :'(");
+		});
+	}
+}
     // =================== Fim da linha do codigo da web - cam ==========================
 </script> --}}
 

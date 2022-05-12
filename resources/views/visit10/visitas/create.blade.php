@@ -7,23 +7,33 @@
 @stop
 
 @section('content')
+@if ($errors->any())
+<div class="alert alert-danger">
+    <strong>Opa!</strong> Houve alguns problemas com sua entrada.<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+<br>
+{{-- Inicio Botão para Cadastro de Visitantes --}}
 
+<div class="row" style="margin-top: 0rem;">
+    <div class="col-lg-12 margin-tb">
 
+        <div class="pull-right">
+            <a class="btn btn-success" href="{{ route('visitas.index') }}"> Lista de visitas</a>
+        </div><br>
+    </div>
+</div>
+{{-- Fim Botão para Cadastro de Visitantes --}}
+<tr>
 
     <div class="py-12">
-
-        <div class="p-6 bg-white border-b border-gray-200">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Opa!</strong> Houve alguns problemas com sua entrada.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            <br>
+        <div class="p-6 bg-white border-b border-gray-200">         
+            
             {{-- <h1>CADASTRO DE VISITAS</h1> --}}
 
             {{-- ------------------------------Inicio do formulario------------------------------------- --}}
@@ -43,18 +53,7 @@
                         </tr>
                     </thead>
 
-                    {{-- Inicio Botão para Cadastro de Visitantes --}}
-
-                    <div class="row" style="margin-top: 0rem;">
-                                <div class="col-lg-12 margin-tb">
-
-                                    <div class="pull-right">
-                                        <a class="btn btn-success" href="{{ route('visitas.index') }}"> Lista de visitas</a>
-                                    </div><br>
-                                </div>
-                            </div>
-                    {{-- Fim Botão para Cadastro de Visitantes --}}
-                    <tr>
+                    
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <th scope="row"><strong>Visitantes:</strong>
                                 <select name="visitantes_id" class="custom-select rounded-0">
@@ -141,8 +140,8 @@
                             <div class="form-group">
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-lifit">
                                     <button type="submit" class="btn btn-primary">Enviar</button>
-                                    <a class="btn btn-primary" href="{{ route('visitas.create') }}">
-                                        Retornar</a>
+                                    {{-- <a class="btn btn-primary" href="{{ route('visitas.create') }}">
+                                        Retornar</a> --}}
                                 </div>
                         </th>
 
